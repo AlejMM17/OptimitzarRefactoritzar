@@ -3,7 +3,7 @@
 #include <time.h>
 
 #define TOTAL_CARDS 52
-#define CARD_VALUES 13
+#define CARD_VALUES 12
 #define MAX_HAND 10
 
 // Representation of the cards
@@ -27,9 +27,8 @@ void initializeDeck() {
     for (int i = 0; i < TOTAL_CARDS; i++) {
         deck[i].value = values[i % CARD_VALUES];
         deck[i].suit = suits[i / CARD_VALUES];
-        deck[i].numericValue = (i % CARD_VALUES) + 1;
-        if (deck[i].numericValue > 10) deck[i].numericValue = 10;
-        if (i % CARD_VALUES == CARD_VALUES - 1) deck[i].numericValue = 11;
+        deck[i].numericValue = (i % CARD_VALUES) + 2;
+
     }
 }
 
