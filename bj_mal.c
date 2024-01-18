@@ -63,7 +63,7 @@ int main() {
 
         if (choice == 'y' || choice == 'Y') {
             playerHand[numPlayerCards] = deck[numPlayerCards + 1];
-            int sum = 0;
+            sum = 0;
             ++numPlayerCards;
             for (int i = 0; i < numPlayerCards; i++) {
                 sum += playerHand[i].numericValue;
