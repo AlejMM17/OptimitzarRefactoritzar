@@ -6,6 +6,10 @@
 #define CARD_VALUES 13
 #define MAX_HAND 10
 
+
+
+int main() {
+
 // Representation of the cards
 char *values[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
 char *suits[] = {"Hearts", "Diamonds", "Spades", "Clubs"};
@@ -20,9 +24,6 @@ struct card {
 struct card deck[TOTAL_CARDS], playerHand[MAX_HAND];
 int numPlayerCards = 0, playerSum = 0;
 char choice;
-
-
-int main() {
 
     for (int i = 0; i < TOTAL_CARDS; i++) {
         deck[i].value = values[i % CARD_VALUES];
@@ -44,11 +45,8 @@ int main() {
     playerHand[numPlayerCards++] = deck[0];
     playerHand[numPlayerCards++] = deck[1];
 
-    int sum = 0;
-    for (int i = 0; i < numPlayerCards; i++) {
-        sum += playerHand[i].numericValue;
-    }
-    playerSum=sum;
+        playerSum += playerHand[0].numericValue;
+        playerSum += playerHand[1].numericValue;
 
     printf("Your cards:\n");
 
@@ -63,13 +61,8 @@ int main() {
 
         if (choice == 'y' || choice == 'Y') {
             playerHand[numPlayerCards] = deck[numPlayerCards + 1];
-            sum = 0;
+            playerSum += playerHand[numPlayerCards].numericValue;
             ++numPlayerCards;
-            for (int i = 0; i < numPlayerCards; i++) {
-                sum += playerHand[i].numericValue;
-            }
-            playerSum=sum;
-
             printf("New card:\n");
             printf("  %s of %s\n", playerHand[numPlayerCards - 1].value, playerHand[numPlayerCards - 1].suit);
             printf("Total sum: %d\n", playerSum);
